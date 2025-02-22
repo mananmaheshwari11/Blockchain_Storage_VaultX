@@ -1,0 +1,8 @@
+/.env
+/certificate
+/config
+/controller
+/helpers
+/models
+/node_modules
+/routes
