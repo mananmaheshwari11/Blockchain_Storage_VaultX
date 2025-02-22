@@ -4,13 +4,15 @@ import morgan from "morgan";
 import dotenv from "dotenv"
 import connectDb from "./config/db.js";
 import universityRoutes from "./routes/universityRoutes.js"
+import cookieParser from "cookie-parser";
 
 dotenv.config()
 connectDb();
 
 
 const app=express();
-app.use(cors())
+app.use(cors({credentials:true}))
+app.use(cookieParser())
 app.use(morgan('dev'))
 app.use(express.json())
 
