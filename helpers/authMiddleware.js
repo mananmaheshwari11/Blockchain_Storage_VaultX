@@ -24,9 +24,9 @@ export const checkPassword=async(password1,password2)=>{
     }
 }
 
-export const generateHash=async(email,dob)=>{
+export const generateHash=async(email,dob,type)=>{
     try {
-        const value=email+dob;
+        const value=email+dob+(type.toString());
         return crypto.createHash("sha256").update(value).digest("hex")
     } catch (error) {
         console.log("error in creating credentials")

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "concurrently": "^9.1.2",
     "cookie-parser": "^1.4.7",
@@ -21,7 +22,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "server": "nodemon index.js",
+     "client": "npm run dev --prefix ./certificate",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
   },
   "author": "manan",
   "license": "ISC"

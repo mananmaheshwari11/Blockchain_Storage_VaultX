@@ -2,7 +2,9 @@ import { checkPassword, generateHash, hashedPassword } from "../helpers/authMidd
 import universityModel from "../models/universityModel.js"
 import certificateModel from "../models/certificateModel.js";
 import studentModel from "../models/studentModel.js"
+import typeModel from "../models/typeModel.js"
 import jwt from "jsonwebtoken"
+
 
 export const registerUniversity = async (req, res) => {
   try {
@@ -106,7 +108,7 @@ export const uploadCertificate = async (req, res) => {
   try {
     const { uid } = req.params;
     const { email, dob, block, type } = req.body;
-    const hash = await generateHash(email, dob);
+    const hash = await generateHash(email, dob, type);
     const certificate = await new certificateModel({
       uid: uid,
       hash: hash,
@@ -128,8 +130,8 @@ export const uploadCertificate = async (req, res) => {
 
 export const getCertificate = async (req, res) => {
   try {
-    const { email, dob } = req.body;
-    const hash = await generateHash(email, dob);
+    const { email, dob, type } = req.body;
+    const hash = await generateHash(email, dob, type);
     const certificate = await certificateModel.findOne({ hash: hash });
     return res.status(200).send({
       success: true,
@@ -239,3 +241,57 @@ export const getStudent = async (req, res) => {
     });
   }
 };
+
+export const createTypes=async(req,res)=>{
+  try {
+      const {uid}=req.params
+      const {name}=req.body
+      const type=await new typeModel({name:name,uid:uid}).save()
+      return res.status(201).send({
+        success:true,
+        message:"Entity type created successfully"
+      })
+  } catch (error) {
+      return res.status(400).send({
+        success:false,
+        message:"Error in creating entity",
+        error
+      })
+  }
+}
+
+export const getAllTypes=async(req,res)=>{
+  try {
+    const types=await typeModel.find({})
+    return res.status(304).send({
+      success:true,
+      message:"Getting all the entities of the companies",
+      types
+    })
+  } catch (error) {
+    return res.status(400).send({
+      success:false,
+      message:"Error in getting entity",
+      error
+    })
+  }
+}
+
+export const deleteCertificate=async(req,res)=>{
+  try {
+    const {uid}=req.params
+    const {email,dob,type,block}=req.body
+    const hash=await generateHash(email, dob, type)
+    await certificateModel.findOneAndDelete({hash:hash});
+    return res.status(200).send({
+      success:true,
+      message:"Certificate delete successfully"
+    })
+  } catch (error) {
+    return res.status(400).send({
+      success:false,
+      message:"Error in updation of the certificate",
+      error
+    })
+  }
+}
