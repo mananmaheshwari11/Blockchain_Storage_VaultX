@@ -15,7 +15,8 @@ const certificatesModel=new mongoose.Schema({
         required:true
     },
     type:{
-        type:String,
+        type:mongoose.ObjectId,
+        ref:"typeModel",
         required:true
     }
 },{timestamps:true})

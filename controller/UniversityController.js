@@ -109,11 +109,12 @@ export const uploadCertificate = async (req, res) => {
   try {
     const { uid } = req.params;
     const { email, dob, block, type } = req.body;
+    const types=await typeModel.findById(type)
     const hash = await generateHash(email, dob, type);
     const certificate = await new certificateModel({
       uid: uid,
       hash: hash,
-      type: type,
+      type: types._id,
       block: block,
     }).save();
     return res.status(200).send({
@@ -294,6 +295,26 @@ export const deleteCertificate=async(req,res)=>{
     return res.status(400).send({
       success:false,
       message:"Error in updation of the certificate",
+      error
+    })
+  }
+}
+
+export const updateType=async(req,res)=>{
+  try {
+    const id=req.params.uid
+    const {uid,name}=req.body
+    const organisation=await universityModel.findById(id)
+    const type=await typeModel.findByIdAndUpdate(uid,{name:name},{new:true})
+    return res.status(200).send({
+      success:true,
+      message:"Updated successfully",
+      type
+    })
+  } catch (error) {
+    return res.status(400).send({
+      success:false,
+      message:"Error in updating the entity",
       error
     })
   }

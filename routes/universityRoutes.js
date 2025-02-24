@@ -9,14 +9,15 @@ import {
   loginStudent,
   getStudent,
   createTypes,
-  getAllTypes
+  getAllTypes,
+  updateType
 } from "../controller/UniversityController.js";
 import { checkRole, RequireSignIn } from "../helpers/authMiddleware.js";
 const route = express.Router();
 
 route.post("/", registerUniversity);
 route.post("/user", loginUniversity);
-route.post("/user/:uid",RequireSignIn,checkRole,uploadCertificate);
+route.post("/user/:uid",RequireSignIn,uploadCertificate);
 route.get("/user", getAllUniversity);
 route.post("/certificate",RequireSignIn,getCertificate);
 route.post('/individual',registerStudent);
@@ -24,6 +25,7 @@ route.post('/individual/login',loginStudent);
 route.get('/individual/:sid',RequireSignIn,getStudent);
 route.post('/types/:uid',RequireSignIn,createTypes);
 route.get('/types/:uid',RequireSignIn,getAllTypes);
+route.put('/types/:uid',RequireSignIn,updateType)
 route.get('/check',RequireSignIn,(req,res)=>{
     res.status(200).send({
       ok:true,
