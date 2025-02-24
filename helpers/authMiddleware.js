@@ -36,7 +36,7 @@ export const generateHash=async(email,dob,type)=>{
 dotenv.config()
 
 export const RequireSignIn=async(req,res,next)=>{
-    const token=req.cookies.token;
+    const token=req.headers.authorization;
     if(!token){
         return res.status(402).send({message:"Unauthorized user,Access Denied!"})
     }

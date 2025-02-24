@@ -4,6 +4,7 @@ import certificateModel from "../models/certificateModel.js";
 import studentModel from "../models/studentModel.js"
 import typeModel from "../models/typeModel.js"
 import jwt from "jsonwebtoken"
+import mongoose from "mongoose";
 
 
 export const registerUniversity = async (req, res) => {
@@ -262,8 +263,10 @@ export const createTypes=async(req,res)=>{
 
 export const getAllTypes=async(req,res)=>{
   try {
-    const types=await typeModel.find({})
-    return res.status(304).send({
+    const id=req.params.uid
+    const organisation=await universityModel.findById(id)
+    const types=await typeModel.find({uid:organisation._id});
+    return res.status(200).send({
       success:true,
       message:"Getting all the entities of the companies",
       types

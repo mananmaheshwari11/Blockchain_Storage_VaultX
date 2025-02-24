@@ -22,7 +22,14 @@ route.post("/certificate",RequireSignIn,getCertificate);
 route.post('/individual',registerStudent);
 route.post('/individual/login',loginStudent);
 route.get('/individual/:sid',RequireSignIn,getStudent);
-route.post('/types/:uid',RequireSignIn,checkRole,createTypes);
+route.post('/types/:uid',RequireSignIn,createTypes);
 route.get('/types/:uid',RequireSignIn,getAllTypes);
-
+route.get('/check',RequireSignIn,(req,res)=>{
+    res.status(200).send({
+      ok:true,
+      _id:req.user._id,
+      email:req.user.email,
+      role:req.user.role
+    })
+})
 export default route;
