@@ -110,3 +110,5 @@ In the ContractProvider.jsx change the api key of lighthouse storage
 If you redploy the contract change contract_address and contract ABI in Contract.jsx
 
 For more details on the frontend read the readme.md of certificate
+https://vaultx-hvfv.onrender.com you can find application on this site 
+ensure metamask extension is installed in the browser on which the site is rendered 
