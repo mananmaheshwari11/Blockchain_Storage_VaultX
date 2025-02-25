@@ -1,0 +1,461 @@
+/* Base Styles & Variables */
+:root {
+    --primary: #3366ff;
+    --primary-dark: #2952cc;
+    --secondary: #4138ec;
+    --accent: #ff6584;
+    --light: #f8f9ff;
+    --dark: #1a1a2e;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 6px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --border-radius: 10px;
+    --transition-normal: all 0.3s ease;
+    --font-title: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+  
+  /* General Styles */
+  .about-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    text-align: center;
+    padding: 3rem 1rem 4rem;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+  }
+  
+  .page-title {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--dark);
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+  }
+  
+  .tagline {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+  
+  /* Two Column Layout */
+  .content-section {
+    margin-bottom: 5rem;
+  }
+  
+  .two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  .image-column {
+    position: relative;
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-bg-shape {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: var(--gradient-primary);
+    opacity: 0.1;
+    z-index: -1;
+    animation: morphShape 15s infinite alternate ease-in-out;
+  }
+  
+  @keyframes morphShape {
+    0% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    25% {
+      border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+    }
+    50% {
+      border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    }
+    75% {
+      border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+    }
+    100% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  }
+  
+  .main-image {
+    max-width: 80%;
+    height: auto;
+    z-index: 1;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  }
+  
+  .floating-icon {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+    color: var(--primary);
+  }
+  
+  .icon-1 {
+    top: 20%;
+    left: 5%;
+  }
+  
+  .icon-2 {
+    bottom: 25%;
+    left: 15%;
+  }
+  
+  .icon-3 {
+    top: 40%;
+    right: 10%;
+  }
+  
+  /* Text Column */
+  .text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .section-title {
+    font-family: var(--font-title);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    color: var(--dark);
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  
+  .section-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Flag Labels */
+  .flag-container {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .flag {
+    position: relative;
+    height: 40px;
+  }
+  
+  .flag-label {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.875rem;
+  }
+  
+  .flag-label::after {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 10px solid var(--secondary);
+  }
+  
+  /* Advantages Section */
+  .advantages-container {
+    margin-top: 2rem;
+  }
+  
+  .advantages-title {
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .advantages-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .advantage-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition-normal);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .advantage-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 0, 0, 0);
+    background: white;
+  }
+  
+  .check-icon {
+    color: white;
+    background: var(--primary);
+    padding: 5px;
+    border-radius: 50%;
+    min-width: 30px;
+    height: 30px;
+  }
+  
+  .advantage-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+  }
+  
+  .advantage-item p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 4rem 0;
+    background: var(--light);
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+  }
+  
+  .features-title {
+    text-align: center;
+    font-family: var(--font-title);
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .features-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+  
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+    transform: translateY(-5px);
+    transition: var(--transition-normal);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .feature-card:hover::before {
+    transform: translateY(0);
+  }
+  
+  .feature-icon {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .feature-card h3 {
+    margin: 0 0 1rem 0;
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+  }
+  
+  .feature-card p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+  
+  /* Animation Classes */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .page-title {
+      font-size: 3rem;
+    }
+    
+    .two-column-grid {
+      gap: 2rem;
+    }
+    
+    .image-container {
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .two-column-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .page-title {
+      font-size: 2.5rem;
+    }
+    
+    .features-grid {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+    }
+    
+    .image-column {
+      order: 1;
+    }
+    
+    .text-column {
+      order: 2;
+    }
+    
+    .floating-icon {
+      padding: 10px;
+    }
+    
+    .icon-1 {
+      top: 15%;
+      left: 15%;
+    }
+    
+    .icon-2 {
+      bottom: 15%;
+      left: 20%;
+    }
+    
+    .icon-3 {
+      top: 30%;
+      right: 15%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .page-title {
+      font-size: 2rem;
+    }
+    
+    .tagline {
+      font-size: 1.25rem;
+    }
+    
+    .flag-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+    }
+    
+    .advantages-title {
+      font-size: 1.5rem;
+    }
+  }
