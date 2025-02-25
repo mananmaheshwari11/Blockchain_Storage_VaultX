@@ -1,0 +1,71 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spinner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .spinner {
+    height: 2rem;
+    width: 2rem;
+    color: #4B5563;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-text {
+    color: #374151;
+    font-size: 0.875rem;
+  }
+  
+  .error-card {
+    padding: 1.5rem;
+    border: 2px solid #EF4444;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: white;
+  }
+  
+  .error-icon-wrapper {
+    background-color: #FEE2E2;
+    padding: 0.75rem;
+    border-radius: 9999px;
+  }
+  
+  .error-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #EF4444;
+  }
+  
+  .error-text {
+    color: #EF4444;
+    font-size: 0.875rem;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .error-btn{
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
