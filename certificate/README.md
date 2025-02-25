@@ -1,6 +1,6 @@
 # VaultX Frontend
 
-![VaultX Starting Frontpage](path/to/your/image.png)
+![VaultX Starting Frontpage](/readme_logo.jpg)
 
 VaultX is a secure and intuitive platform designed for managing sensitive data with ease. This repository contains the frontend code, built using **React+Vite**, and it interacts seamlessly with the VaultX backend to provide a smooth user experience.
 
@@ -95,7 +95,8 @@ This will start the development server at `http://localhost:5173/`.
 
 ### 📌 Notes
 - Ensure the backend is running before accessing protected routes for getting access.
-- Update the proxy in vite.config.js if working in production server.[](/readme_plugin.jpg)
+- Update the proxy in vite.config.js if working in production server.
+[Proxy Setup](/readme_plugin.jpg)
 - Ensure the Ethereum wallet is connected when interacting with smart contracts.
 
 🔹 Happy coding with **VaultX!** 🚀
