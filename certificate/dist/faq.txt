@@ -1,0 +1,40 @@
+What is VaultX?  
+  
+VaultX is a secure storage application that allows users to store and manage sensitive documents, passwords, and other digital assets.  
+
+%%  
+
+How do I sign up for VaultX?  
+ 
+To sign up for VaultX, visit the registration page, enter your email and password, and complete the verification process. You can then log in and start using the application.  
+
+%%  
+
+How do I log in to my VaultX account?  
+  
+Go to the VaultX login page, enter your registered email and password, and click the login button. If you have enabled two-factor authentication (2FA), you will need to enter the verification code sent to your device.  
+
+%%  
+
+How do I upload files to VaultX?  
+  
+After logging in, navigate to the "Uploads" section, click the "Upload" button, select the file from your device, and confirm the upload. Your file will be securely stored and encrypted.  
+
+%%  
+
+What is an entity in VaultX?  
+  
+An entity in VaultX represents a stored item, such as a document, password, or note. You can organize your entities using categories and tags for easy retrieval.  
+
+%%  
+
+How can I retrieve my stored files or entities?  
+  
+Go to the "My Vault" section, search for the file or entity by name, and click on it to view or download it. You can also use filters to find specific types of stored items.  
+
+%%  
+
+What should I do if I forget my password?  
+  
+If you forget your password, click the "Forgot Password" link on the login page. Follow the instructions to reset your password using the email verification process.  
+
