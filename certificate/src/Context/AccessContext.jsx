@@ -11,7 +11,6 @@ const AccessContext = () => {
         const getAccess=async()=>{
             try {
             const {data}=await axios.get('/api/auth/check')
-            console.log(data)
             if(data.ok){
                 setAuth({
                     ...auth,
