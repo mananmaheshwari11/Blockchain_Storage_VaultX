@@ -108,3 +108,5 @@ Create a .env after clone in the root directory as same as index.js and give thr
 
 In the ContractProvider.jsx change the api key of lighthouse storage 
 If you redploy the contract change contract_address and contract ABI in Contract.jsx
+
+For more details on the frontend read the readme.md of certificate
