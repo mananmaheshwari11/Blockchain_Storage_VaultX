@@ -12,13 +12,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: linear-gradient(45deg, #2196F3, #00BCD4); */
+    overflow: hidden;
+    position: relative;
 }
 
 .signup-image {
     width: 80%;
     max-width: 400px;
     border-radius: 10px;
+    transition: all 0.5s ease;
 }
 
 /* Right Side - Form */
@@ -32,21 +34,55 @@
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-
 }
-.form-subcontainer{
+
+.form-subcontainer {
     border: 10px solid rgb(247, 246, 246);
     border-left: none;
-    border-top:none ;
+    border-top: none;
     border-radius: 20px;
-    padding: 20px 12px 20px 12px; 
+    padding: 20px 12px 20px 12px;
+    width: 100%;
+    max-width: 500px;
 }
+
+/* User Type Selector */
+.user-type-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.type-btn {
+    padding: 10px 20px;
+    background: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    font-weight: 500;
+}
+
+.type-btn:hover {
+    background: #e0e0e0;
+}
+
+.type-btn.active {
+    background: linear-gradient(45deg, #2196F3, #00BCD4);
+    color: white;
+}
+
 /* Form Headings */
 .form-heading {
     font-size: 28px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #333;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .form-subheading {
@@ -54,17 +90,18 @@
     color: #666;
     margin-bottom: 20px;
     font-family: sans-serif;
+    text-align: center;
 }
 
 /* Form Styling */
 .form-content {
-    width: 80%;
+    width: 90%;
     max-width: 400px;
+    margin: 0 auto;
 }
 
 .input-group {
     margin-bottom: 15px;
-    margin-left: 10px;
 }
 
 .input-group input {
@@ -76,28 +113,38 @@
     font-size: 14px;
     outline: none;
     transition: 0.3s ease-in-out;
+    background-color: #f9f9f9;
 }
 
 .input-group input:focus {
     border-color: #667eea;
     box-shadow: 0px 0px 8px rgba(102, 126, 234, 0.5);
+    background-color: #fff;
 }
 
 /* Error & Success Messages */
 .error-message {
-    color: red;
+    color: #e74c3c;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 5px;
+    text-align: center;
 }
 
 .success-message {
-    color: green;
+    color: #27ae60;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: rgba(39, 174, 96, 0.1);
+    border-radius: 5px;
+    text-align: center;
 }
 
 /* Button Styling */
-button {
+.submit-btn {
     width: 100%;
     padding: 12px;
     background: linear-gradient(45deg, #2196F3, #00BCD4);
@@ -107,21 +154,47 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-top: 10px;
 }
 
-button:hover {
-    background: #00BCD4;
+.submit-btn:hover {
+    background: linear-gradient(45deg, #1e88e5, #00acc1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-button:disabled {
-    background: gray;
+.submit-btn:disabled {
+    background: #95a5a6;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Login Text */
+.login-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.link {
+    text-decoration: none;
+    color: #2196F3;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: #0d8aee;
+    text-decoration: underline;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .signup-container {
         flex-direction: column;
+        height: auto;
     }
 
     .form-img {
@@ -130,13 +203,25 @@ button:disabled {
 
     .form-container {
         width: 100%;
+        padding: 1rem;
+    }
+    
+    .form-subcontainer {
+        border: none;
+        padding: 10px;
+    }
+    
+    .form-heading {
+        font-size: 24px;
     }
 }
-.link{
-    text-decoration: none;
-    color: black;
 
+/* Animation for form transitions */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-p{
-    margin-top: 2px;
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
 }
