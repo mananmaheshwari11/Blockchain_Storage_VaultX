@@ -183,7 +183,7 @@ useEffect(() => {
             <button type="submit" disabled={isLoading}>
               {isLoading ? "Updating..." : "Update file"}
             </button>
-          <label>Only for file updation.</label>
+          <label>Only for file updation. Once updated previous record vanish forever</label>
           </form>
         </div>
       </div>
