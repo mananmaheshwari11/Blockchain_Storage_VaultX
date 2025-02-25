@@ -1,0 +1,246 @@
+/* Container Styling */
+.signup-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+/* Left Side - Image */
+.form-img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9fafa;
+    /* background: linear-gradient(45deg, #2196F3, #00BCD4); */
+}
+
+.signup-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* Right Side - Form */
+.form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+}
+.form-subcontainer{
+    border: 10px solid rgb(247, 246, 246);
+    border-left: none;
+    border-top:none ;
+    border-radius: 20px;
+    padding: 20px 12px 20px 12px; 
+}
+/* Form Headings */
+.form-heading {
+    font-size: 28px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-subheading {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
+/* Form Styling */
+.form-content {
+    width: 80%;
+    max-width: 400px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid aliceblue;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+}
+
+.input-group input:focus {
+    border-color: #667eea;
+    box-shadow: 0px 0px 8px rgba(102, 126, 234, 0.5);
+}
+
+/* Error & Success Messages */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #2196F3, #00BCD4);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #00BCD4;
+}
+
+button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+    }
+
+    .form-img {
+        display: none; /* Hide image on small screens */
+    }
+
+    .form-container {
+        width: 100%;
+    }
+}
+.link{
+    text-decoration: none;
+    color: black;
+
+}
+
+.file-input-container {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border: 1px dashed #bbb;
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+  }
+  
+  .file-input-container:hover {
+    background-color: #e9f5ff;
+    border-color: #2196F3;
+  }
+  
+  .file-input-container input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .file-input-label {
+    color: #2196F3;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .file-input-label::before {
+    content: '📄';
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  /* Custom styling for the entity dropdown */
+.entity-dropdown-container {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  
+  .entity-select {
+    width: 98%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-top: none;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    appearance: none;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1rem;
+  }
+  
+  .entity-select:focus {
+    border-color: #2196F3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  .entity-select option {
+    padding: 0.5rem;
+  }
+  
+  /* Text truncation for long entity names */
+  .entity-select, 
+  .entity-select option {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Style for the label if needed */
+  .entity-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+  }
+  .help-txt{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+  label{
+    font-size: 14px;
+    color: #666;
+  }
