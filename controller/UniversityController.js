@@ -93,7 +93,7 @@ export const getAllUniversity = async (req, res) => {
     const university = await universityModel.find({});
     return res.status(201).send({
       success: true,
-      message: "Getting all the university",
+      message: "Getting all the Organisation",
       university,
     });
   } catch (error) {
@@ -105,12 +105,56 @@ export const getAllUniversity = async (req, res) => {
   }
 };
 
+export const getUniversity = async (req, res) => {
+  try {
+    const id=req.params.uid;
+    const university = await universityModel.findById(id);
+    return res.status(201).send({
+      success: true,
+      message: "Getting the Organisation info",
+      university,
+    });
+  } catch (error) {
+    return res.status(201).send({
+      success: false,
+      message: "Error on fetching organisation",
+      error,
+    });
+  }
+};
+
+export const updateUniversity=async(req,res)=>{
+  try {
+    const id=req.params.uid
+    const {name,location}=req.body
+    const university= await universityModel.findByIdAndUpdate(id,{name:name,location:location},{new:true})
+    return res.status(200).send({
+      success:true,
+      message:"Organisation Updated Successfully",
+      university
+    })
+  } catch (error) {
+    return res.status(400).send({
+      success:false,
+      message:"Error in updating organisation",
+      error
+    })
+  }
+}
+
 export const uploadCertificate = async (req, res) => {
   try {
     const { uid } = req.params;
     const { email, dob, block, type } = req.body;
     const types=await typeModel.findById(type)
     const hash = await generateHash(email, dob, type);
+    const cft=await certificateModel.findOne({hash:hash})
+    if(cft){
+      return res.status(304).send({
+        success:true,
+        message:"Certificate already exists for this e-mail"
+      })
+    }
     const certificate = await new certificateModel({
       uid: uid,
       hash: hash,
@@ -281,6 +325,23 @@ export const getAllTypes=async(req,res)=>{
   }
 }
 
+export const updateTypes=async(req,res)=>{
+  try {
+      const {uid}=req.params;
+      const {name}=req.body;
+      const type=await typeModel.findByIdAndUpdate({_id:uid},{name:name},{new:true})
+      return res.status(201).send({
+        success:true,
+        message:"Entity type updated successfully"
+      })
+  } catch (error) {
+      return res.status(400).send({
+        success:false,
+        message:"Error in updating entity",
+        error
+      })
+  }
+}
 export const deleteCertificate=async(req,res)=>{
   try {
     const {uid}=req.params
@@ -300,22 +361,30 @@ export const deleteCertificate=async(req,res)=>{
   }
 }
 
-export const updateType=async(req,res)=>{
+export const updateCertificate=async(req,res)=>{
   try {
-    const id=req.params.uid
-    const {uid,name}=req.body
-    const organisation=await universityModel.findById(id)
-    const type=await typeModel.findByIdAndUpdate(uid,{name:name},{new:true})
+    const { email, dob, block, type } = req.body;
+    const hash = await generateHash(email, dob, type);
+    const cft=await certificateModel.findOne({hash:hash})
+    if(!cft){
+      return res.status(404).send({
+        success:false,
+        message:"No entity exist on this email & dob in organisation"
+      })
+    }
+    const certificate = await certificateModel.findOneAndUpdate({hash:hash},{
+      block: block,
+    },{new:true});
     return res.status(200).send({
-      success:true,
-      message:"Updated successfully",
-      type
-    })
+      success: true,
+      message:"Certificate Updated Successfully",
+      certificate
+    });
   } catch (error) {
     return res.status(400).send({
-      success:false,
-      message:"Error in updating the entity",
+      success: false,
+      message: "Error in updating the certificate",
       error
-    })
+    });
   }
 }
