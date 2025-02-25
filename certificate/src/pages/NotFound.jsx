@@ -8,7 +8,6 @@ const NotFound = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
-
   return (
     <div className="not-found-container">
       <div className="icon-wrapper">
