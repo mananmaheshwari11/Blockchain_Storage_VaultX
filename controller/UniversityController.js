@@ -163,7 +163,7 @@ export const uploadCertificate = async (req, res) => {
     }).save();
     return res.status(200).send({
       success: true,
-      certificate
+      message:"Asset stored successfully"
     });
   } catch (error) {
     return res.status(400).send({
