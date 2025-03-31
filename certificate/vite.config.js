@@ -7,12 +7,21 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Output directory
     sourcemap: false, 
-    target:"esnext"
+    target:"esnext",
+    rollupOptions:{
+      output:{
+        manualChunks(id){
+          if (id.includes('node_modules/pdfjs-dist')) {
+            return 'pdfjs';
+          }
+        }
+      }
+    }
   },
   server:{
     proxy:{
       '/api':{
-        target:"http://localhost:8080",
+        target:"http://localhost:8081",
         changeOrigin:true
       }
     }

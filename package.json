@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
     "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "concurrently": "^9.1.2",
@@ -9,11 +11,14 @@
     "dotenv": "^16.4.7",
     "ethers": "^6.13.5",
     "express": "^4.21.2",
+    "html2canvas": "^1.4.1",
     "jsonwebtoken": "^9.0.2",
+    "jspdf": "^3.0.1",
     "mongodb": "^6.13.1",
     "mongoose": "^8.10.1",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "pdfjs-dist": "^5.1.91"
   },
   "name": "pramaanpeti",
   "version": "1.0.0",
@@ -26,7 +31,6 @@
     "server": "nodemon index.js",
     "client": "npm run dev --prefix ./certificate",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-
   },
   "author": "manan",
   "license": "ISC"
