@@ -64,6 +64,15 @@ const HomePage = () => {
          >
            Get Digital Assets
          </button>
+
+         <button 
+           className="get-started-btn"
+           onClick={() => {
+             navigate("/vault/validate");
+           }}
+         >
+           Validate Assets
+         </button>
           </>
         )}
                 

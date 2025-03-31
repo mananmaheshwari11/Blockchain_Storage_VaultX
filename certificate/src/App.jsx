@@ -13,6 +13,7 @@ import AboutVaultX from "./pages/About"
 import HelpPage from "./pages/Help"
 import Info from "./pages/Info"
 import UpdateForm from "./pages/UpdateForm"
+import FormValidate from "./pages/formValidate"
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
     <Route path="update" element={<UpdateForm/>}/>
     </Route>
     <Route path="retrieve" element={<FormRetrieve/>}/>
+    <Route path="validate" element={<FormValidate/>}/>
     </Route>
    
     </Routes>
