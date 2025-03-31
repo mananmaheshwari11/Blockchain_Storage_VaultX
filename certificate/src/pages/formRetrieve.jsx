@@ -71,10 +71,12 @@ const FormRetrieve = () => {
                 }
                 else{
                     console.log("Invalid email for retrieving certifcate")
+                    toast.error("Invalid credential to get the certificate")
                 }
             }
         } catch (error) {
             console.log(error.response?.data?.message)
+            toast.error("Error while fetching the assets")
         }
         finally{
             setIsLoading(false)

@@ -71,9 +71,7 @@ useEffect(() => {  // Ensure contract is available
 }, [contract]); 
 
 useEffect(() => {
-    console.log("humare pass blockAddress hai",blockaddress)
   if (blockaddress) { // Run only when blockaddress is updated
-    console.log("axios start ho rha hai")
     axios.put(`/api/auth/user`, {
       email: formData.email,
       dob: formData.dob,
@@ -82,7 +80,7 @@ useEffect(() => {
     })
     .then(({ data }) => {
       if (data.success) {
-        toast.success(data.message,{duration:2000})
+        toast.success("Asset Stored Successfully",{duration:2000})
       }
     else{
         toast.error(data.message,{duration:3000})
@@ -97,7 +95,7 @@ useEffect(() => {
     })
     .catch(error => {
     console.log('Upload failed:', error);
-    toast.error(error?.response?.data?.message)
+    toast.error("Upload failed due to network error")
   });
   }
 // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -116,6 +114,7 @@ useEffect(() => {
       const reciept=await uploadCertificate(formData.email,response.data.Hash);
     } catch (error) {
       console.log('Upload failed:', error);
+      toast.error("Network error in submission")
     } finally {
       setIsLoading(false);
     }

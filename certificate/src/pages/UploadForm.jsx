@@ -71,6 +71,7 @@ useEffect(() => {  // Ensure contract is available
 
 useEffect(() => {
   if (blockaddress) { // Run only when blockaddress is updated
+    toast.success("Asset encrypted",{duration:1000})
     axios.post(`/api/auth/user/${auth?.user?._id}`, {
       email: formData.email,
       dob: formData.dob,
@@ -94,7 +95,7 @@ useEffect(() => {
     })
     .catch(error => {
     console.log('Upload failed:', error);
-    toast.error(error?.response?.data?.message)
+    toast.error("Network error in submission")
   });
   }
 // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -102,7 +103,10 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
+    if (!validateForm()){
+      toast.error("Please provide valid details")
+      return;
+    } 
     setIsLoading(true);
     await connectMetaMask()
     try {
@@ -111,6 +115,7 @@ useEffect(() => {
       const reciept=await uploadCertificate(formData.email,response.data.Hash);
     } catch (error) {
       console.log('Upload failed:', error);
+      toast.error("Network error in submission")
     } finally {
       setIsLoading(false);
     }
