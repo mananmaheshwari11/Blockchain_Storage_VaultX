@@ -23,7 +23,7 @@ export const getCertificate=async(blockaddress)=>{
     }
 }
 // uploading certificate to lighthouse
-const apiKey="d5f7e6d3.0748777fdc5a4c23b01cd21b81b82053";
+const apiKey="978624cf.3515e36f29ec490e83d58e6beb329b7c";
 export const uploadFile=async(file)=>{
     try {
     if(!file){
@@ -58,6 +58,24 @@ export const downloadFile = async (cid) => {
       console.error('Failed to download the file:', error);
     }
   };
+
+  export const fetchCertificate = async (cid) => {
+    try {
+        const url = `https://gateway.lighthouse.storage/ipfs/${cid}`;
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+
+        const data = await response.arrayBuffer(); 
+        return data;
+    } catch (error) {
+        console.error("Failed to fetch the certificate:", error);
+        return null;
+    }
+};
+
 
 export const connectMetaMask = async () => {
     if (typeof window.ethereum !== 'undefined') {
